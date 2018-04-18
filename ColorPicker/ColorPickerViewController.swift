@@ -23,6 +23,18 @@ class ColorPickerViewController: UIViewController, UIPickerViewDataSource, UIPic
     
     var currentColor: String?
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        pickerLabel.text = colors[0].name
+        self.view.backgroundColor = colors[0].uiColor
+        
+    }
+    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+    }
+    
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }
@@ -39,18 +51,6 @@ class ColorPickerViewController: UIViewController, UIPickerViewDataSource, UIPic
         currentColor = colors[row].name
         pickerLabel.text = currentColor
         self.view.backgroundColor = colors[row].uiColor
-    }
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        pickerLabel.text = colors[0].name
-        self.view.backgroundColor = colors[0].uiColor
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
 }
